@@ -13,3 +13,6 @@ Item.all.each do |item|
   item.save
   counter += 1
 end
+
+User.create(email: 'friend@gmail.com', password: 'friend')
+FactoryGirl.create(:user)
