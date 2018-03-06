@@ -28,9 +28,11 @@ class Cart < ActiveRecord::Base
       line_item.item.save
     end
     self.update(status: "submitted")
-    order = Order.new(status: "submitted", user_id: self.user.id, total: self.total)
+    order = Order.new(status: "submitted", user_id: self.user.id, total: total)
     order.save
     user.update(current_cart_id: nil)
+    user.save
+    order
   end
 
 end

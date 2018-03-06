@@ -6,8 +6,9 @@ class CartsController < ApplicationController
 
   def checkout
     cart = Cart.find(params[:id])
-    cart.checkout
-    redirect_to cart_path(cart)
+    order = cart.checkout
+    redirect_to order_path(order)
+    # redirect_to cart_path(cart)
   end
 
 end
